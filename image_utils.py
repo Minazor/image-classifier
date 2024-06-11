@@ -37,6 +37,14 @@ def read_images_from_dir(dir_path):
     return images
 
 
+def get_images_from_dir(dir_path):
+    check_is_dir(dir_path)
+    files = os.listdir(dir_path)
+    image_files = filtered_images(files)
+    image_paths = [os.path.join(dir_path, file) for file in image_files]
+    return image_paths
+
+
 def max_resolution_rescale(image, max_width, max_height):
     width, height = image.size
     if width > max_width or height > max_height:
